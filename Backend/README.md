@@ -2,9 +2,6 @@
 ### Installation
 ```
 npm install
-npm install nodemon -g
-npm install ts-node -g
-npm install typescript -g
 ```
 
 ### Debugging
@@ -23,11 +20,6 @@ export NT_DB_URL=mongodb://localhost/dev-sample
 ```
 npm run dev
 "dev": "DEBUG=NT:* nodemon -x 'ts-node src/server.ts;'",
-```
-
-### Check Linting Errors
-```
-npm run lint
 ```
 
 ### Prepare build
