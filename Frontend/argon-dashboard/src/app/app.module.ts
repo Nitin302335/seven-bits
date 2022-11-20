@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AuthInterceptor } from './layouts/auth-layout/interceptor/auth.interceptor';
+import { TrackJsErrorHandler } from './error/error.handler';
 
 
 @NgModule({
@@ -36,6 +37,10 @@ import { AuthInterceptor } from './layouts/auth-layout/interceptor/auth.intercep
       useClass: AuthInterceptor,
       multi: true,
     },
+    {
+      provide: ErrorHandler,
+      useClass: TrackJsErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
